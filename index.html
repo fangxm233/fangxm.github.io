@@ -4,590 +4,745 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <!-- <link rel="icon" href="../../../../favicon.ico"> -->
-  <title>Xinmin Fang</title>
+  <meta name="description" content="Xinmin Fang - Ph.D. Student in Computer Science at CU Denver">
+  <meta name="author" content="Xinmin Fang">
+  <title>Xinmin Fang | 方新民</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+  <link rel="canonical" href="https://fangxm.github.io">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <style>
-  .vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+  :root {
+    --primary: #1e40af;
+    --primary-light: #3b82f6;
+    --primary-50: #eff6ff;
+    --accent: #d97706;
+    --accent-light: #fbbf24;
+    --bg: #fafbfc;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .04), 0 1px 3px rgba(0, 0, 0, .06);
+    --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, .06), 0 2px 4px -1px rgba(0, 0, 0, .04);
+    --shadow-lg: 0 12px 24px -8px rgba(0, 0, 0, .10), 0 4px 8px -2px rgba(0, 0, 0, .04);
   }
 
-  .tooltip-inner {
-    max-width: 500px;
-    /* If max-width does not work, try using width instead */
-    width: 500px;
+  body {
+    font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  .tooltip.show {
-    opacity: 1;
-    background: rgb(255, 255, 255);
+  h1, h2, h3, h4, h5 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #111827;
   }
 
-  img:hover>.overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: #000;
-    opacity: 0.5;
-    border-radius: 30px;
+  h2.section-title {
+    font-size: 1.75rem;
+    margin: 0 0 1.25rem;
+    position: relative;
+    padding-left: 14px;
+  }
+  h2.section-title::before {
+    content: '';
+    position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 4px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--primary), #7c3aed);
+  }
+
+  h4.sub-title {
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin: 1.25rem 0 .75rem;
+    font-weight: 600;
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color .15s ease;
+  }
+  a:hover { color: var(--primary-light); text-decoration: underline; }
+
+  /* ============ Sticky Nav ============ */
+  .site-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, .85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-nav .nav-inner {
+    display: flex; justify-content: center; gap: 28px;
+    padding: 14px 16px;
+    font-weight: 600; font-size: 14px;
+    overflow-x: auto;
+  }
+  .site-nav a {
+    color: var(--text);
+    letter-spacing: .02em;
+    white-space: nowrap;
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color .15s, border-color .15s;
+  }
+  .site-nav a:hover { color: var(--primary); text-decoration: none; border-bottom-color: var(--primary); }
+
+  /* ============ Hero ============ */
+  .hero {
+    background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 60%, #fdf4ff 100%);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    margin: 1.5rem 0 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero-avatar {
+    width: 240px; height: 240px; border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 24px 48px -12px rgba(30, 64, 175, .25), 0 8px 16px -4px rgba(0, 0, 0, .08);
+    border: 6px solid #fff;
+    display: block; margin: 0 auto;
+  }
+  .hero-name {
+    font-size: 2rem; font-weight: 800; margin: 0 0 .75rem;
+    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 60%, #c026d3 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.025em;
+  }
+  .hero-name .cn { font-family: 'Noto Sans SC', sans-serif; font-weight: 700; }
+  .hero-role { font-size: 1rem; line-height: 1.7; color: var(--text); margin-bottom: 1rem; }
+  .hero-role b { font-weight: 600; }
+  .hero-email {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 999px;
+    background: rgba(255, 255, 255, .7);
+    border: 1px solid var(--border);
+    font-size: .9rem; color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .hero-links { margin-top: .5rem; }
+  .image-btn {
+    transition: transform .2s ease, filter .2s ease;
+    margin: 0 6px;
+  }
+  .image-btn:hover { transform: translateY(-3px) scale(1.05); filter: brightness(1.1); }
+
+  /* ============ Info Cards (News/Education/Awards) ============ */
+  .info-card {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .info-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .info-card.accent-award { border-left-color: var(--accent); background: linear-gradient(90deg, #fffbeb 0%, #fff 40%); }
+  .info-card.accent-publication { border-left-color: var(--primary-light); }
+  .info-card.accent-academic { border-left-color: #9ca3af; }
+  .info-card.accent-research { border-left-color: #10b981; }
+  .info-card.accent-teaching { border-left-color: #8b5cf6; }
+
+  .info-card .card-icon {
+    width: 52px; height: 52px; border-radius: 10px; flex-shrink: 0; object-fit: cover;
+  }
+  .info-card .card-body-text { flex: 1; min-width: 0; }
+  .info-card .card-label {
+    display: inline-block; font-size: .7rem; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 6px; margin-bottom: 4px;
+  }
+  .card-label.award { background: #fef3c7; color: #92400e; }
+  .card-label.publication { background: #dbeafe; color: #1e40af; }
+  .card-label.academic { background: #f3f4f6; color: #374151; }
+  .card-label.research { background: #d1fae5; color: #065f46; }
+  .card-label.teaching { background: #ede9fe; color: #5b21b6; }
+  .info-card .card-title { font-weight: 700; color: #111827; display: block; margin-bottom: 2px; }
+  .info-card .card-text { color: var(--text); font-size: .94rem; line-height: 1.55; }
+  .info-card .date-badge {
+    display: inline-block; font-size: .78rem; font-weight: 600;
+    color: var(--primary); background: var(--primary-50);
+    padding: 2px 8px; border-radius: 6px; margin-right: 6px;
+  }
+
+  /* ============ Research Interest Tags ============ */
+  .tag {
+    display: inline-block; padding: 6px 14px; border-radius: 999px;
+    font-size: .85rem; font-weight: 600; margin: 4px 6px 4px 0;
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    color: var(--primary);
+    border: 1px solid #c7d2fe;
+    transition: transform .2s ease, box-shadow .2s ease;
+    cursor: default;
+  }
+  .tag:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+  /* ============ Publication Cards ============ */
+  .pub-card {
+    display: flex; gap: 22px; align-items: stretch;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .pub-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: #c7d2fe; }
+  .pub-thumb {
+    flex-shrink: 0; width: 240px;
+    border-radius: 10px; overflow: hidden; background: #f3f4f6;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pub-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pub-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .pub-body h3 { font-size: 1.12rem; margin: 8px 0 8px; line-height: 1.4; color: #111827; }
+  .pub-authors { color: var(--text); font-size: .93rem; line-height: 1.55; }
+  .pub-authors b { color: #111827; }
+  .pub-venue { color: var(--text-muted); font-style: italic; font-size: .88rem; margin-top: 4px; margin-bottom: 0; }
+
+  .venue-pill {
+    display: inline-block; padding: 4px 12px; border-radius: 999px;
+    font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+    background: #dbeafe; color: #1e40af; text-transform: uppercase;
+  }
+  .venue-pill.award {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+    box-shadow: 0 2px 6px rgba(217, 119, 6, .2);
+  }
+  .venue-pill.preprint { background: #f3f4f6; color: #4b5563; }
+
+  .btn-ext {
+    display: inline-block; padding: 5px 14px; border-radius: 8px;
+    background: var(--primary); color: #fff !important; font-size: .82rem; font-weight: 600;
+    margin-top: 10px; margin-right: 6px;
+    transition: transform .15s, background .15s, box-shadow .15s;
+  }
+  .btn-ext:hover { background: var(--primary-light); transform: translateY(-1px); text-decoration: none; box-shadow: var(--shadow-sm); }
+
+  .year-header {
+    display: flex; align-items: center; gap: 12px;
+    margin: 1.5rem 0 1rem;
+    font-size: 1rem; font-weight: 700; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: .1em;
+  }
+  .year-header::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ============ Project badges ============ */
+  .badge-tech {
+    display: inline-block; padding: 4px 12px; border-radius: 6px;
+    background: #eef2ff; color: var(--primary);
+    font-size: .78rem; font-weight: 600; margin-right: 6px; margin-top: 4px;
+  }
+
+  /* ============ Footer ============ */
+  .site-footer {
+    background: #111827; color: #9ca3af;
+    padding: 2rem 0; margin-top: 3rem;
+    text-align: center; font-size: .9rem;
+  }
+  .site-footer p { margin: 0; }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 768px) {
+    .hero { padding: 1.5rem 1rem; }
+    .hero-avatar { width: 180px; height: 180px; }
+    .hero-name { font-size: 1.5rem; }
+    .pub-card { flex-direction: column; gap: 14px; }
+    .pub-thumb { width: 100%; height: 180px; }
+    .site-nav .nav-inner { gap: 16px; font-size: 13px; justify-content: flex-start; }
+  }
+
+  hr.section-divider {
+    border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0;
   }
 </style>
+
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script src="https://getbootstrap.com/docs/4.0/assets/js/docs.min.js"></script>
 
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132051884-3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-
   gtag('config', 'UA-132051884-3');
 </script>
 
 
 <body>
 
-  <!-- Begin page content -->
-  <main role="main" class="container" style="margin-top: 10px;">
-    <div class="row">
-      <div class="col-md-6 order-md-1 p-4" style="vertical-align:middle; text-align:center">
-        <img class="" src="images/A.png" width="300" height="300">
+  <!-- Sticky Nav -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="#top">Home</a>
+      <a href="#news">News</a>
+      <a href="#bio">Biography</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </nav>
+
+  <a id="top"></a>
+
+  <!-- Hero -->
+  <main role="main" class="container">
+    <div class="hero">
+      <div class="row align-items-center">
+        <div class="col-md-5 text-center">
+          <img class="hero-avatar" src="images/A.png" alt="Xinmin Fang">
+        </div>
+        <div class="col-md-7 text-center text-md-left pt-3 pt-md-0">
+          <h1 class="hero-name">Xinmin Fang <span class="cn">方新民</span></h1>
+          <p class="hero-role">
+            <b>Ph.D. Student</b> in Computer Science &amp; Information Systems<br>
+            College of Engineering, Design and Computing<br>
+            <b>University of Colorado Denver (CU Denver)</b><br>
+            Advisor: <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Prof. Zhengxiong Li</a>
+          </p>
+          <div class="hero-email">
+            <i class="fa fa-envelope-o"></i>
+            <a href="mailto:xinmin.fang@ucdenver.edu">xinmin (DOT) fang (AT) ucdenver (DOT) edu</a>
+          </div>
+          <div class="hero-links">
+            <a href="files/CV_Xinmin_Fang.pdf" title="CV"><img class="image-btn" height="48" src="images/icons/cv2.png" alt="CV"></a>
+            <a href="https://github.com/fangxm233" title="GitHub" target="_blank"><img class="image-btn" height="48" src="images/icons/github.png" alt="GitHub"></a>
+            <a href="https://scholar.google.com/citations?user=GxauvigAAAAJ" title="Google Scholar" target="_blank"><img class="image-btn" height="48" src="images/icons/google-scholar.png" alt="Google Scholar"></a>
+          </div>
+        </div>
       </div>
-
-      <div class="col-md-5 order-md-2 text-center pt-1">
-        <h2 class="pt-5">fangxm | Xinmin Fang |<span style="font-family: sans-serif">方新民</h2>
-        <!-- <p class="lead"><b>Sophomore in Computer Science<br/>University at Buffalo, SUNY.</b></p> -->
-        <p class="lead">
-          <b>
-            Ph.D. Student in Computer Science & Information Systems
-            <br>
-            College of Engineering, Design and Computing
-            <br>
-            University of Colorado Denver (CU Denver)
-            <br>
-            Advisor: Prof. Zhengxiong Li
-          </b>
-        </p>
-        <p class="lead"><b></b></p>
-        <p class="lead">
-          <b>Email: <a href="mailto:xinmin.fang@ucdenver.edu">xinmin (DOT) fang (AT) ucdenver (DOT) edu</a></b>
-          <br>
-        </p>
-
-        <a href="files/CV_Xinmin_Fang.pdf"><img class="image-btn" height="50px"
-          src="images/icons/cv2.png"></a>
-        <a href="https://github.com/fangxm233"><img class="image-btn" height="50px" src="images/icons/github.png"></a>
-        <a href="https://scholar.google.com/citations?user=GxauvigAAAAJ"><img class="image-btn" height="50px"
-            src="images/icons/google-scholar.png"></a>
-
-
-      </div>
-
     </div>
   </main>
 
+  <!-- News & Biography -->
   <div class="container">
-    <hr>
-
     <div class="row">
-      <div class="col-md-6">
-        <h2>News</h2>
-        <div class="my-3 rounded box-shadow">
+      <div class="col-md-7">
+        <a id="news"></a>
+        <h2 class="section-title">News</h2>
 
-          <div class="media text-muted pt-1 mt-2 border rounded bg-light">
-            <img src="images/icons/Award.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-danger">🏆 Award</strong>
-              <b>[2025]</b> Best Paper Award at Sensors S&P '25 for mmVanish paper.
-            </p>
+        <div class="info-card accent-award">
+          <img src="images/icons/Award.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="card-label award">🏆 Award</span>
+            <span class="card-title">Best Paper Award at Sensors S&amp;P '25 for mmVanish</span>
+            <span class="card-text"><span class="date-badge">2025</span></span>
           </div>
-
-          <div class="media text-muted pt-1 mt-2 border rounded bg-light">
-            <img src="images/icons/Academic.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-primary">Publication</strong>
-              <b>[2025]</b> Two full papers accepted at <b>IROS'25</b>: VRobotix and DexPour.
-            </p>
-          </div>
-
-          <div class="media text-muted pt-1 mt-2 border rounded">
-            <img src="images/icons/Academic.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-gray-dark">Academic</strong>
-              <b>[Fall 2024]</b> Started Ph.D. in Computer Science & Information Systems at CU Denver.
-            </p>
-          </div>
-
-          <div class="media text-muted pt-1 mt-2 border rounded">
-            <img src="images/icons/Academic.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-gray-dark">Academic</strong>
-              <b>[Jun 2024]</b> Graduated from GDUT with B.S. in Internet of Things.
-            </p>
-          </div>
-
-          <div class="media text-muted pt-1 mt-2 border rounded">
-            <img src="images/icons/Academic.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-gray-dark">Research</strong>
-              <b>[Sep 2021]</b> Joined META Lab as a researcher under Prof. Zhengxiong Li.
-            </p>
-          </div>
-
         </div>
+
+        <div class="info-card accent-publication">
+          <img src="images/icons/Academic.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="card-label publication">Publication</span>
+            <span class="card-title">Two full papers accepted at IROS'25: VRobotix and DexPour</span>
+            <span class="card-text"><span class="date-badge">2025</span></span>
+          </div>
+        </div>
+
+        <div class="info-card accent-academic">
+          <img src="images/icons/Academic.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="card-label academic">Academic</span>
+            <span class="card-title">Started Ph.D. in Computer Science &amp; Information Systems at CU Denver</span>
+            <span class="card-text"><span class="date-badge">Fall 2024</span></span>
+          </div>
+        </div>
+
       </div>
-      <a class="anchor" name="bio"></a>
+
       <div class="col-md-5">
-        <h2>Biography</h2>
-        <p class="lead">
-          <b>I am a second year Ph.D. student in Computer Science & Information Systems in the
-          <a href="https://engineering.ucdenver.edu/">College of Engineering, Design and Computing</a>
-          at the
-          <a href="https://ucdenver.edu/">University of Colorado Denver (CU Denver)</a>
-          , advised by 
-          <a href="https://cse.ucdenver.edu/~lizheng/">Prof. Zhengxiong Li</a>.
-          </b>
+        <a id="bio"></a>
+        <h2 class="section-title">Biography</h2>
+        <p>
+          I am a second year <b>Ph.D. student</b> in Computer Science &amp; Information Systems at the
+          <a href="https://engineering.ucdenver.edu/" target="_blank">College of Engineering, Design and Computing</a>,
+          <a href="https://ucdenver.edu/" target="_blank">University of Colorado Denver (CU Denver)</a>,
+          advised by <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Prof. Zhengxiong Li</a>.
         </p>
-        <h4>Research Interests</h4>
-        <button class="btn btn-secondary mb-2">Robotics</button>
-        <button class="btn btn-secondary mb-2">Mobile Computing</button>
-        <button class="btn btn-secondary mb-2">IoT</button>
+        <h4 class="sub-title">Research Interests</h4>
+        <div>
+          <span class="tag">Robotics</span>
+          <span class="tag">Mobile Computing</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Embodied AI</span>
+          <span class="tag">Virtual Reality</span>
+        </div>
       </div>
-
     </div>
 
+    <hr class="section-divider">
   </div>
 
-  <!-- 学校 -->
+  <!-- Education / Awards / TA / Presenter -->
   <div class="container">
-    <hr>
+    <a id="education"></a>
     <div class="row">
       <div class="col-md-6">
-        <h2>Education</h2>
-        <div class="my-3 rounded box-shadow">
-          <div class="media text-muted pt-1 mt-2 border rounded">
-            <img src="images/Education/UCD.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-inline-block mb-2 text-primary text-center">Fall 2024 ~ Present</strong>
-              <strong class="d-block text-gray-dark">University of Colorado Denver</strong>
-              Ph.D in Computer Science & Information Systems
-            </p>
+        <h2 class="section-title">Education</h2>
+        <div class="info-card accent-academic">
+          <img src="images/Education/UCD.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="date-badge">Fall 2024 ~ Present</span>
+            <span class="card-title">University of Colorado Denver</span>
+            <span class="card-text">Ph.D. in Computer Science &amp; Information Systems</span>
           </div>
-          <div class="media text-muted pt-1 mt-2 border rounded">
-            <img src="images/Education/GDUT.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-inline-block mb-2 text-primary text-center">Fall 2020 ~ June 2024</strong>
-              <strong class="d-block text-gray-dark">Guangdong University of Technology</strong>
-              Bachelor in Internet of Things
-            </p>
-          </div>  
+        </div>
+        <div class="info-card accent-academic">
+          <img src="images/Education/GDUT.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="date-badge">Fall 2020 ~ Jun 2024</span>
+            <span class="card-title">Guangdong University of Technology</span>
+            <span class="card-text">B.S. in Internet of Things</span>
+          </div>
         </div>
 
+        <h2 class="section-title" style="margin-top: 2rem;">Awards</h2>
+        <div class="info-card accent-award">
+          <img src="images/icons/Award.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="card-label award">🏆 Best Paper Award</span>
+            <span class="card-title">Sensors S&amp;P '25</span>
+            <span class="card-text"><span class="date-badge">2025</span></span>
+          </div>
+        </div>
+        <div class="info-card accent-academic">
+          <img src="images/Education/UCD.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="card-label academic">Scholarship</span>
+            <span class="card-title">Graduate Education Scholarship</span>
+            <span class="card-text"><span class="date-badge">Fall 2024</span></span>
+          </div>
+        </div>
       </div>
+
       <div class="col-md-6">
-        <h2>Awards</h2>
-        <div class="my-3 rounded box-shadow">
-          <div class="media text-muted pt-1 mt-2 border rounded bg-light">
-            <img src="images/icons/Award.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-danger">🏆 Best Paper Award</strong>
-              Sensors S&P '25 (2025)
-            </p>
+        <h2 class="section-title">Teaching Assistant</h2>
+        <div class="info-card accent-teaching">
+          <img src="images/Education/UCD.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="card-label teaching">Teaching</span>
+            <span class="card-title">University of Colorado Denver</span>
+            <span class="card-text">
+              <b>Fall 2024:</b> CSCI 4772/5772 Mobile and IoT Security<br>
+              <b>Spring 2025:</b> CSCI 3740 Computer Security<br>
+              <b>Fall 2025:</b> CSCI 4771/5771 Intro to Mobile Computing, CSCI 4772/5772 Mobile and IoT Security<br>
+              <b>Spring 2026:</b> CSCI 4772 Mobile and IoT Security, CSCI 5773 Intro Emerging System Security
+            </span>
           </div>
-          <div class="media text-muted pt-1 mt-2 border rounded">
-            <img src="images/Education/UCD.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-gray-dark">Fall 2024</strong>
-              Graduate Education ScholarShip
-            </p>
-          </div>
-
         </div>
-        <h2>Teaching Assistant</h2>
-        <div class="my-3 rounded box-shadow">
-          <div class="media text-muted pt-1 mt-2 border rounded">
-            <img src="images/Education/UCD.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-gray-dark">University of Colorado Denver</strong>
-              <strong>Fall 2024:</strong> CSCI 4772/5772 Mobile and IoT Security<br>
-              <strong>Spring 2025:</strong> CSCI 3740 Computer Security<br>
-              <strong>Fall 2025:</strong> CSCI 4771/5771 Intro to Mobile Computing, CSCI 4772/5772 Mobile and IoT Security<br>
-              <strong>Spring 2026:</strong> CSCI 4772 Mobile and IoT Security, CSCI 5773 Intro Emerging System Security
-            </p>
-          </div>
 
-        </div>
-        <h2>Presenter</h2>
-        <div class="my-3 rounded box-shadow">
-          <div class="media text-muted pt-1 mt-2 border rounded">
-            <img src="images/Education/UCD.png" width="64" height="64" alt="" class="mr-2 rounded">
-            <p class="media-body pb-3 mb-0 lh-125 border-gray text-center">
-              <strong class="d-block text-gray-dark">Conference Presentations</strong>
-              <strong>2024:</strong> ACM MobiCom-PICASSO Workshop — MetaGlucose<br>
-              <strong>2025:</strong> Sensors S&P — mmVanish
-            </p>
+        <h2 class="section-title" style="margin-top: 2rem;">Presenter</h2>
+        <div class="info-card accent-publication">
+          <img src="images/Education/UCD.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="card-label publication">Presentations</span>
+            <span class="card-title">Conference Presentations</span>
+            <span class="card-text">
+              <b>2024:</b> ACM MobiCom-PICASSO Workshop — MetaGlucose<br>
+              <b>2025:</b> Sensors S&amp;P — mmVanish
+            </span>
           </div>
         </div>
       </div>
     </div>
 
+    <hr class="section-divider">
   </div>
 
+  <!-- Publications -->
   <div class="container">
-    <hr>
-    <h2>Publications</h2>
+    <a id="publications"></a>
+    <h2 class="section-title">Publications</h2>
 
-    <!-- 2025 Publications -->
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-danger">🏆 Best Paper Award - Sensors S&P '25</strong>
-        <h3 class="mb-0">mmVanish: Extending the Vanish Attack for Multi-Radar Exploitation of mmWave Sensing with Meta-material Tags</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Hailu Xu, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ACM Proceedings of the 2nd International Workshop on Security and Privacy of Sensing Systems (Sensors S&P'25)</em></p>
-        </div>
+    <div class="year-header">2025 — Peer Reviewed</div>
+
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill award">🏆 Best Paper · Sensors S&amp;P '25</span>
+        <h3>mmVanish: Extending the Vanish Attack for Multi-Radar Exploitation of mmWave Sensing with Meta-material Tags</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Hailu Xu, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ACM Proceedings of the 2nd International Workshop on Security and Privacy of Sensing Systems (Sensors S&amp;P'25)</p>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">IEEE/RSJ IROS 2025</strong>
-        <h3 class="mb-0">VRobotix: A Scalable and Cost-Effective Virtual-Reality-Based Robotic Manipulation Dataset Generation Framework</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Zheshuo Li, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'25)</em></p>
-        </div>
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/IROS_DexHand.jpg" alt="VRobotix"></div>
+      <div class="pub-body">
+        <span class="venue-pill">IEEE/RSJ IROS 2025</span>
+        <h3>VRobotix: A Scalable and Cost-Effective Virtual-Reality-Based Robotic Manipulation Dataset Generation Framework</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Zheshuo Li, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'25)</p>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">IEEE/RSJ IROS 2025</strong>
-        <h3 class="mb-0">DexPour: Effective and Efficient High-DoF Robotic Hand Liquid Pouring via Hierarchical Reward with Approximated Proxy Abstraction</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'25)</em></p>
-        </div>
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/IROS_DexPour.jpg" alt="DexPour"></div>
+      <div class="pub-body">
+        <span class="venue-pill">IEEE/RSJ IROS 2025</span>
+        <h3>DexPour: Effective and Efficient High-DoF Robotic Hand Liquid Pouring via Hierarchical Reward with Approximated Proxy Abstraction</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'25)</p>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ACM MobiSys 2025</strong>
-        <h3 class="mb-0">EffVR: Enhancing Energy and Computation Efficiency of Mobile Virtual Reality</h3>
-        <div class="mb-1">
-          *<a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, *<b>Xinmin Fang</b>, Shuting Zhang, Xinyu Zhang, Liang He, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ACM International Conference on Mobile Systems, Applications, and Services (MobiSys'25) (*Co-first author)</em></p>
-        </div>
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/MobiSys_EffVR.jpg" alt="EffVR"></div>
+      <div class="pub-body">
+        <span class="venue-pill">ACM MobiSys 2025</span>
+        <h3>EffVR: Enhancing Energy and Computation Efficiency of Mobile Virtual Reality</h3>
+        <div class="pub-authors">*<a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, *<b>Xinmin Fang</b>, Shuting Zhang, Xinyu Zhang, Liang He, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ACM International Conference on Mobile Systems, Applications, and Services (MobiSys'25) (*Co-first author)</p>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">SenSys 2025</strong>
-        <h3 class="mb-0">Poster Abstract: Understanding IoT Security Awareness Disparities Between CS and Non-CS Students</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ACM Conference on Embedded Networked Sensor Systems (SenSys'25)</em></p>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill">SenSys 2025</span>
+        <h3>Poster Abstract: Understanding IoT Security Awareness Disparities Between CS and Non-CS Students</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ACM Conference on Embedded Networked Sensor Systems (SenSys'25)</p>
       </div>
     </div>
 
-    <!-- TechRxiv Preprints -->
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-secondary">TechRxiv 2025</strong>
-        <h3 class="mb-0">From First Principles: Why Artificial Intelligence is a Civilizational Inevitability</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, Fangzhou Ma, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>TechRxiv (TechRxiv:177091628)</em></p>
-          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177091628" class="btn btn-primary mt-1 mr-1">TechRxiv</a>
-        </div>
+    <div class="year-header">2025 — Preprints (TechRxiv)</div>
+
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">TechRxiv 2025</span>
+        <h3>From First Principles: Why Artificial Intelligence is a Civilizational Inevitability</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, Fangzhou Ma, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">TechRxiv (TechRxiv:177091628)</p>
+        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177091628" target="_blank" class="btn-ext">TechRxiv</a></div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-secondary">TechRxiv 2025</strong>
-        <h3 class="mb-0">Digital Hieroglyphs: Orthogonal Composite Tokens for Vision-Language-Action Models</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>TechRxiv (TechRxiv:177041993)</em></p>
-          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177041993" class="btn btn-primary mt-1 mr-1">TechRxiv</a>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">TechRxiv 2025</span>
+        <h3>Digital Hieroglyphs: Orthogonal Composite Tokens for Vision-Language-Action Models</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">TechRxiv (TechRxiv:177041993)</p>
+        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177041993" target="_blank" class="btn-ext">TechRxiv</a></div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-secondary">TechRxiv 2025</strong>
-        <h3 class="mb-0">Multi-Scaling Laws for Embodied Intelligence: A Conjecture on Nested Power-Law Relationships in Dexterous Manipulation</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>TechRxiv (TechRxiv:176857966)</em></p>
-          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.176857966" class="btn btn-primary mt-1 mr-1">TechRxiv</a>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">TechRxiv 2025</span>
+        <h3>Multi-Scaling Laws for Embodied Intelligence: A Conjecture on Nested Power-Law Relationships in Dexterous Manipulation</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">TechRxiv (TechRxiv:176857966)</p>
+        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.176857966" target="_blank" class="btn-ext">TechRxiv</a></div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-secondary">TechRxiv 2025</strong>
-        <h3 class="mb-0">Intelligence Flywheel: A Conjecture on Recursive Self-Improvement and the Dynamics of AI Progress</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>TechRxiv (TechRxiv:176972273)</em></p>
-          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.176972273" class="btn btn-primary mt-1 mr-1">TechRxiv</a>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">TechRxiv 2025</span>
+        <h3>Intelligence Flywheel: A Conjecture on Recursive Self-Improvement and the Dynamics of AI Progress</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">TechRxiv (TechRxiv:176972273)</p>
+        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.176972273" target="_blank" class="btn-ext">TechRxiv</a></div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-secondary">TechRxiv 2025</strong>
-        <h3 class="mb-0">AI Robotics Open Source R&D Survey: Foundation Models, Datasets, Simulation, and Benchmarks Platforms (2023-2025)</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>TechRxiv (TechRxiv:175756484)</em></p>
-          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.175756484" class="btn btn-primary mt-1 mr-1">TechRxiv</a>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">TechRxiv 2025</span>
+        <h3>AI Robotics Open Source R&amp;D Survey: Foundation Models, Datasets, Simulation, and Benchmarks Platforms (2023-2025)</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">TechRxiv (TechRxiv:175756484)</p>
+        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.175756484" target="_blank" class="btn-ext">TechRxiv</a></div>
       </div>
     </div>
 
-    <!-- ArXiv Papers -->
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ArXiv 2024</strong>
-        <h3 class="mb-0">InverTwin: Solving Inverse Problems via Differentiable Radio Frequency Digital Twin</h3>
-        <div class="mb-1">
-          <a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, Jianrong Ding, Kai Zheng, <b>Xinmin Fang</b>, Xinyu Zhang, Chris Xiaoxuan Lu, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ArXiv (arXiv:2508.14204)</em></p>
-          <a href="https://arxiv.org/abs/2508.14204" class="btn btn-primary mt-1 mr-1">ArXiv</a>
-        </div>
+    <div class="year-header">Preprints (ArXiv)</div>
+
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">ArXiv 2024</span>
+        <h3>InverTwin: Solving Inverse Problems via Differentiable Radio Frequency Digital Twin</h3>
+        <div class="pub-authors"><a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, Jianrong Ding, Kai Zheng, <b>Xinmin Fang</b>, Xinyu Zhang, Chris Xiaoxuan Lu, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ArXiv (arXiv:2508.14204)</p>
+        <div><a href="https://arxiv.org/abs/2508.14204" target="_blank" class="btn-ext">ArXiv</a></div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ArXiv 2025</strong>
-        <h3 class="mb-0">AI's Euclid's Elements Moment: From Language Models to Computable Thought</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ArXiv (arXiv:2506.23080)</em></p>
-          <a href="https://arxiv.org/abs/2506.23080" class="btn btn-primary mt-1 mr-1">ArXiv</a>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">ArXiv 2025</span>
+        <h3>AI's Euclid's Elements Moment: From Language Models to Computable Thought</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ArXiv (arXiv:2506.23080)</p>
+        <div><a href="https://arxiv.org/abs/2506.23080" target="_blank" class="btn-ext">ArXiv</a></div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ArXiv 2025</strong>
-        <h3 class="mb-0">Closer to language than steam: AI as the cognitive engine of a new productivity revolution</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ArXiv (arXiv:2506.10281)</em></p>
-          <a href="https://arxiv.org/abs/2506.10281" class="btn btn-primary mt-1 mr-1">ArXiv</a>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">ArXiv 2025</span>
+        <h3>Closer to Language than Steam: AI as the Cognitive Engine of a New Productivity Revolution</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ArXiv (arXiv:2506.10281)</p>
+        <div><a href="https://arxiv.org/abs/2506.10281" target="_blank" class="btn-ext">ArXiv</a></div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ArXiv 2025</strong>
-        <h3 class="mb-0">Anchoring AI Capabilities in Market Valuations: The Capability Realization Rate Model and Valuation Misalignment Risk</h3>
-        <div class="mb-1">
-          <b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ArXiv (arXiv:2505.10590)</em></p>
-          <a href="https://arxiv.org/abs/2505.10590" class="btn btn-primary mt-1 mr-1">ArXiv</a>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">ArXiv 2025</span>
+        <h3>Anchoring AI Capabilities in Market Valuations: The Capability Realization Rate Model and Valuation Misalignment Risk</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ArXiv (arXiv:2505.10590)</p>
+        <div><a href="https://arxiv.org/abs/2505.10590" target="_blank" class="btn-ext">ArXiv</a></div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ArXiv 2023</strong>
-        <h3 class="mb-0">Differentiable Radio Frequency Ray Tracing for Millimeter-Wave Sensing</h3>
-        <div class="mb-1">
-          <a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, Xingyu Zhang, Qiyue Xia, <b>Xinmin Fang</b>, Chris Xiaoxuan Lu, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ArXiv (arXiv:2311.13182)</em></p>
-          <a href="https://arxiv.org/abs/2311.13182" class="btn btn-primary mt-1 mr-1">ArXiv</a>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">ArXiv 2023</span>
+        <h3>Differentiable Radio Frequency Ray Tracing for Millimeter-Wave Sensing</h3>
+        <div class="pub-authors"><a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, Xingyu Zhang, Qiyue Xia, <b>Xinmin Fang</b>, Chris Xiaoxuan Lu, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ArXiv (arXiv:2311.13182)</p>
+        <div><a href="https://arxiv.org/abs/2311.13182" target="_blank" class="btn-ext">ArXiv</a></div>
       </div>
     </div>
 
-    <!-- 2024 Publications -->
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ACM MobiCom 2024</strong>
-        <h3 class="mb-0">MetaGlucose: Low-cost and Practical Cold Liquid Glucose Level Measurement for Health</h3>
-        <div class="mb-1">
-          *Yilin Song, *<b>Xinmin Fang</b>, Zheshuo Li, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ACM Conference on Mobile Computing And Networking (MobiCom'24) (*Co-first author) (Workshop)</em></p>
-        </div>
+    <div class="year-header">2024</div>
+
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/MobiCom_MetaGlucose.jpg" alt="MetaGlucose"></div>
+      <div class="pub-body">
+        <span class="venue-pill">ACM MobiCom 2024</span>
+        <h3>MetaGlucose: Low-cost and Practical Cold Liquid Glucose Level Measurement for Health</h3>
+        <div class="pub-authors">*Yilin Song, *<b>Xinmin Fang</b>, Zheshuo Li, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ACM Conference on Mobile Computing And Networking (MobiCom'24) (*Co-first author) (Workshop)</p>
       </div>
     </div>
 
-    <!-- 2021 Publications -->
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col-auto d-none d-lg-block">
-        <image src="images/Publications/Sensys2021/VR.png" height="270" width="270" />
-      </div>
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ACM SenSys 2021</strong>
-        <h3 class="mb-0">Poster: Enhanced Virtual Reality: Exploring an Immersive and Realistic Virtual Reality Training for Nursing</h3>
-        <div class="mb-1">
-          *<b>Xinmin Fang</b>, *<a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, <a href="https://cse.buffalo.edu/~wenyaoxu/" target="_blank">Wenyao Xu</a>, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ACM Conference on Embedded Networked Sensor Systems (SenSys'21) (*Co-first author)</em></p>
-        </div>
+    <div class="year-header">2021</div>
+
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/Sensys2021/VR.png" alt="Enhanced VR"></div>
+      <div class="pub-body">
+        <span class="venue-pill">ACM SenSys 2021</span>
+        <h3>Poster: Enhanced Virtual Reality: Exploring an Immersive and Realistic Virtual Reality Training for Nursing</h3>
+        <div class="pub-authors">*<b>Xinmin Fang</b>, *<a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, <a href="https://cse.buffalo.edu/~wenyaoxu/" target="_blank">Wenyao Xu</a>, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ACM Conference on Embedded Networked Sensor Systems (SenSys'21) (*Co-first author)</p>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col-auto d-none d-lg-block">
-        <image src="images/Publications/Sensys2021/AR.png" height="270" width="270" />
-      </div>
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">ACM SenSys 2021</strong>
-        <h3 class="mb-0">Poster: Exploring an Extensible Children Game Framework based on Augmented Reality Building Blocks</h3>
-        <div class="mb-1">
-          <a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, <b>Xinmin Fang</b>, Wenchuan Wei, <a href="https://cse.buffalo.edu/~wenyaoxu/" target="_blank">Wenyao Xu</a>, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a>
-          <p><em>ACM Conference on Embedded Networked Sensor Systems (SenSys'21)</em></p>
-        </div>
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/Sensys2021/AR.png" alt="AR Game"></div>
+      <div class="pub-body">
+        <span class="venue-pill">ACM SenSys 2021</span>
+        <h3>Poster: Exploring an Extensible Children Game Framework based on Augmented Reality Building Blocks</h3>
+        <div class="pub-authors"><a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, <b>Xinmin Fang</b>, Wenchuan Wei, <a href="https://cse.buffalo.edu/~wenyaoxu/" target="_blank">Wenyao Xu</a>, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">ACM Conference on Embedded Networked Sensor Systems (SenSys'21)</p>
       </div>
     </div>
 
-
-
+    <hr class="section-divider">
   </div>
 
+  <!-- Projects -->
   <div class="container">
-    <hr>
-    <h2>Commercial Products & Projects</h2>
+    <a id="projects"></a>
+    <h2 class="section-title">Commercial Products &amp; Projects</h2>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">2025 - Present</strong>
-        <h3 class="mb-0">Prompt2Robotics</h3>
-        <div class="mb-1">
-          <p>A novel framework enabling users to generate virtual robotic scenarios, collect training data, and train Vision-Language-Action (VLA) models through natural language prompts alone.</p>
-          <ul>
-            <li>Developed an integrated system that translates user prompts into executable virtual environments for robotic policy training</li>
-            <li>Successfully implemented support for 140 diverse scenarios from MetaWorld and LIBERO environments</li>
-            <li>Achieved end-to-end automation from prompt input to trained policy deployment</li>
-          </ul>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill">2026 — Present</span>
+        <h3><a href="https://aistatus.cc" target="_blank">AIStatus</a></h3>
+        <p>A real-time AI model status monitoring platform with intelligent routing SDK and local gateway proxy, helping developers and AI agents navigate the rapidly evolving AI infrastructure landscape.</p>
+        <ul>
+          <li><b>Platform (<a href="https://aistatus.cc" target="_blank">aistatus.cc</a>):</b> Real-time status dashboard for 12+ AI providers, model pricing &amp; ranking comparison, MCP server monitoring, and vector database status tracking</li>
+          <li><b>Backend:</b> Serverless API built with Hono on Cloudflare Workers with D1 database, featuring usage leaderboard, telemetry ingestion, and zero-ops deployment</li>
+          <li><b>SDK (Python &amp; TypeScript):</b> Zero-config intelligent routing (<code>route("Hello", model="claude-sonnet-4-6")</code>), automatic provider discovery from environment variables, tier-based model fallback, and cost calculation</li>
+          <li><b>Gateway:</b> Local transparent HTTP proxy with API key rotation, provider fallback chains, SSE streaming support, model-level health tracking, and per-request usage analytics</li>
+        </ul>
+        <div>
+          <span class="badge-tech">Astro</span>
+          <span class="badge-tech">React</span>
+          <span class="badge-tech">Hono</span>
+          <span class="badge-tech">Cloudflare Workers</span>
+          <span class="badge-tech">Python</span>
+          <span class="badge-tech">TypeScript</span>
+        </div>
+        <div style="margin-top: 10px;">
+          <a href="https://aistatus.cc" target="_blank" class="btn-ext">Website</a>
         </div>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">2024 - Present</strong>
-        <h3 class="mb-0">Cyber Nachos</h3>
-        <div class="mb-1">
-          <p>A pioneering initiative dedicated to advancing robotics, AI, and cybersecurity, with a focus on developing intelligent and secure robotic systems.</p>
-          <ul>
-            <li>Designed and developed the Cyber Nachos website, featuring project introductions, product releases, open-source tutorials, and published papers</li>
-            <li>Explored and open-sourced comprehensive installation guides for NVIDIA Isaac Sim and Isaac Lab</li>
-            <li>Resolved and open-sourced liquid simulation issues in NVIDIA Isaac Lab, enabling accurate fluid dynamics simulation</li>
-          </ul>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill">2025 — Present</span>
+        <h3>Prompt2Robotics</h3>
+        <p>A novel framework enabling users to generate virtual robotic scenarios, collect training data, and train Vision-Language-Action (VLA) models through natural language prompts alone.</p>
+        <ul>
+          <li>Developed an integrated system that translates user prompts into executable virtual environments for robotic policy training</li>
+          <li>Successfully implemented support for 140 diverse scenarios from MetaWorld and LIBERO environments</li>
+          <li>Achieved end-to-end automation from prompt input to trained policy deployment</li>
+        </ul>
       </div>
     </div>
 
-    <div class="row no-gutters border rounded bg-light overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-0 text-primary">2017</strong>
-        <h3 class="mb-0">Unity - Steam Networking Framework</h3>
-        <div class="mb-1">
-          <p>One of the first few solutions of Steam multiplayer networking for Unity. Used by commercial games such as RUSSIA BATTLEGROUNDS, a battle royale game supports up to 32 players at the same time.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <span class="badge badge-secondary">Unity</span>
-              <span class="badge badge-secondary">C#</span>
-              <span class="badge badge-secondary">Steam</span>
-            </div>
-          </div>
-        </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill">2024 — Present</span>
+        <h3>Cyber Nachos</h3>
+        <p>A pioneering initiative dedicated to advancing robotics, AI, and cybersecurity, with a focus on developing intelligent and secure robotic systems.</p>
+        <ul>
+          <li>Designed and developed the Cyber Nachos website, featuring project introductions, product releases, open-source tutorials, and published papers</li>
+          <li>Explored and open-sourced comprehensive installation guides for NVIDIA Isaac Sim and Isaac Lab</li>
+          <li>Resolved and open-sourced liquid simulation issues in NVIDIA Isaac Lab, enabling accurate fluid dynamics simulation</li>
+        </ul>
       </div>
     </div>
 
-    <!-- <h2 class="mt-4">Notable Projects</h2>
-
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-          <img class="card-img-top" src="images/Projects/firefly.png" alt="Card image cap">
-          <div class="card-body">
-            <h5><b>[Archived]</b> Firefly Renderer</h5>
-            <p class="card-text">A comprehensive rasterization pipeline running on both CPU and GPU for research use.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="https://github.com/fangxm233/Firefly" class="btn btn-sm btn-outline-secondary">GitHub</a>
-              </div>
-              <small class="text-muted">2018</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-          <img class="card-img-top" src="images/Projects/butterfly.png" alt="Card image cap">
-          <div class="card-body">
-            <h5><b>[Archived] </b>Butterfly Language</h5>
-            <p class="card-text">A programming language with compiler and interpreter, achieving ~30% faster runtime speed than Python.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="https://github.com/fangxm233/Butterfly" class="btn btn-sm btn-outline-secondary">GitHub</a>
-              </div>
-              <small class="text-muted">2018</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-          <img class="card-img-top" src="images/Projects/beebot.png" alt="Card image cap">
-          <div class="card-body">
-            <h5><b>[Archived] </b>BeeBot</h5>
-            <p class="card-text">AI for Screeps, a multiplayer programming strategy game.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="https://github.com/fangxm233/BeeBot" class="btn btn-sm btn-outline-secondary">GitHub</a>
-              </div>
-              <small class="text-muted">2020</small>
-            </div>
-          </div>
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill preprint">2017</span>
+        <h3>Unity — Steam Networking Framework</h3>
+        <p>One of the first few solutions of Steam multiplayer networking for Unity. Used by commercial games such as RUSSIA BATTLEGROUNDS, a battle royale game supporting up to 32 players at the same time.</p>
+        <div>
+          <span class="badge-tech">Unity</span>
+          <span class="badge-tech">C#</span>
+          <span class="badge-tech">Steam</span>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <footer class="blog-footer p-3 border">
+  <footer class="site-footer">
     <div class="container">
-      <p class="m-0 text-center">Copyright &copy; Xinmin Fang 2026</p>
+      <p>&copy; Xinmin Fang 2026 · Built with care</p>
     </div>
   </footer>
 </body>
-
 
 </html>
