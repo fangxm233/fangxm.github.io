@@ -42,6 +42,15 @@
     background: linear-gradient(180deg, var(--primary), #7c3aed);
   }
 
+  .section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin-bottom: 1.25rem;
+  }
+  .section-head h2.section-title { margin-bottom: 0; }
+  .section-head .section-link {
+    font-size: .92rem; font-weight: 600; white-space: nowrap; flex-shrink: 0;
+  }
+
   h4.sub-title {
     font-size: 1rem;
     color: var(--text-muted);
@@ -195,9 +204,12 @@
   .pub-thumb {
     flex-shrink: 0; width: 240px;
     border-radius: 10px; overflow: hidden; background: #f3f4f6;
-    display: flex; align-items: center; justify-content: center;
+    position: relative; min-height: 128px;
   }
-  .pub-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pub-thumb img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: contain; display: block;
+  }
   .pub-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
   .pub-body h3 { font-size: 1.12rem; margin: 8px 0 8px; line-height: 1.4; color: #111827; }
   .pub-authors { color: var(--text); font-size: .93rem; line-height: 1.55; }
@@ -234,6 +246,10 @@
     content: ''; flex: 1; height: 1px; background: var(--border);
   }
 
+  .count { color: var(--text-muted); font-weight: 600; }
+  h2.section-title .count { font-size: 1.15rem; letter-spacing: 0; }
+  .year-header .count { margin-left: -6px; }
+
   /* ============ Project badges ============ */
   .badge-tech {
     display: inline-block; padding: 4px 12px; border-radius: 6px;
@@ -256,6 +272,7 @@
     .hero-name { font-size: 1.5rem; }
     .pub-card { flex-direction: column; gap: 14px; }
     .pub-thumb { width: 100%; height: 180px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 4px; }
     .site-nav .nav-inner { gap: 14px; font-size: 13px; }
     .site-nav .nav-links { gap: 18px; }
     .site-nav .nav-brand { font-size: .98rem; }
