@@ -344,6 +344,15 @@
         <a id="news"></a>
         <h2 class="section-title">News</h2>
 
+        <div class="info-card accent-publication">
+          <img src="images/icons/Academic.png" class="card-icon" alt="">
+          <div class="card-body-text">
+            <span class="card-label publication">Publication</span>
+            <span class="card-title">Two full papers accepted at IROS'26: ExplicitDP and DexTact</span>
+            <span class="card-text"><span class="date-badge">2026</span></span>
+          </div>
+        </div>
+
         <div class="info-card accent-award">
           <img src="images/icons/Award.png" class="card-icon" alt="">
           <div class="card-body-text">
@@ -377,7 +386,7 @@
         <a id="bio"></a>
         <h2 class="section-title">Biography</h2>
         <p>
-          I am a second year <b>Ph.D. student</b> in Computer Science &amp; Information Systems at the
+          I am a third year <b>Ph.D. student</b> in Computer Science &amp; Information Systems at the
           <a href="https://engineering.ucdenver.edu/" target="_blank">College of Engineering, Design and Computing</a>,
           <a href="https://ucdenver.edu/" target="_blank">University of Colorado Denver (CU Denver)</a>,
           advised by <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Prof. Zhengxiong Li</a>.
@@ -449,7 +458,8 @@
               <b>Fall 2024:</b> CSCI 4772/5772 Mobile and IoT Security<br>
               <b>Spring 2025:</b> CSCI 3740 Computer Security<br>
               <b>Fall 2025:</b> CSCI 4771/5771 Intro to Mobile Computing, CSCI 4772/5772 Mobile and IoT Security<br>
-              <b>Spring 2026:</b> CSCI 4772 Mobile and IoT Security, CSCI 5773 Intro Emerging System Security
+              <b>Spring 2026:</b> CSCI 4772 Mobile and IoT Security, CSCI 5773 Intro Emerging System Security<br>
+              <b>Fall 2026:</b> CSCI 4771/5771 Intro to Mobile Computing
             </span>
           </div>
         </div>
@@ -477,6 +487,28 @@
     <a id="publications"></a>
     <h2 class="section-title">Publications</h2>
 
+    <div class="year-header">2026 — Peer Reviewed</div>
+
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/IROS_ExplicitDP.jpg" alt="ExplicitDP"></div>
+      <div class="pub-body">
+        <span class="venue-pill">IEEE/RSJ IROS 2026</span>
+        <h3>ExplicitDP: Generalized Multi-Task Manipulation with Explicit Diffusion Policies via Phase-Aware Task Understanding</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'26)</p>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/IROS_DexTact.jpg" alt="DexTact"></div>
+      <div class="pub-body">
+        <span class="venue-pill">IEEE/RSJ IROS 2026</span>
+        <h3>DexTact: A Visuo-Tactile Foundation Model for Dexterous Hand Grasping</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'26)</p>
+      </div>
+    </div>
+
     <div class="year-header">2025 — Peer Reviewed</div>
 
     <div class="pub-card">
@@ -489,7 +521,7 @@
     </div>
 
     <div class="pub-card">
-      <div class="pub-thumb"><img src="images/Publications/IROS_DexHand.jpg" alt="VRobotix"></div>
+      <div class="pub-thumb"><img src="images/Publications/IROS_VRobotix.jpg" alt="VRobotix"></div>
       <div class="pub-body">
         <span class="venue-pill">IEEE/RSJ IROS 2025</span>
         <h3>VRobotix: A Scalable and Cost-Effective Virtual-Reality-Based Robotic Manipulation Dataset Generation Framework</h3>
@@ -672,6 +704,32 @@
   <div class="container">
     <a id="projects"></a>
     <h2 class="section-title">Commercial Products &amp; Projects</h2>
+
+    <div class="pub-card">
+      <div class="pub-body">
+        <span class="venue-pill">2026 — Present</span>
+        <h3><a href="https://fangxm233.github.io/cortex-agent/" target="_blank">Cortex</a></h3>
+        <p>An open-source autonomous agent system for long-running research projects. Given a mission and a success criterion, Cortex plans the work, dispatches pipelines of agents to execute it, keeps a structured log of progress in the repository, and reviews itself before each commit — across days or weeks of unattended work.</p>
+        <ul>
+          <li><b>Mission-driven task system:</b> decomposes a goal into tracked tasks with priorities, dependencies, and verifiable done-conditions, working through them autonomously and escalating only when blocked</li>
+          <li><b>Multi-agent thread pipelines:</b> long jobs run as a relay of focused agents, each starting with clean context and a narrow scope, with handoffs carrying only what the next stage needs</li>
+          <li><b>Structured project log:</b> mission, roadmap, status, experiments, knowledge, patterns, and decisions persist as plain files in the repository, so a fresh agent can resume where the last one stopped</li>
+          <li><b>Server-client architecture:</b> a Node.js orchestration server drives remote agent instances over WebSocket, with Slack integration, scheduling, and desktop and Android clients built on Tauri</li>
+        </ul>
+        <div>
+          <span class="badge-tech">TypeScript</span>
+          <span class="badge-tech">Node.js</span>
+          <span class="badge-tech">Claude API</span>
+          <span class="badge-tech">WebSocket</span>
+          <span class="badge-tech">Tauri</span>
+          <span class="badge-tech">Python</span>
+        </div>
+        <div style="margin-top: 10px;">
+          <a href="https://fangxm233.github.io/cortex-agent/" target="_blank" class="btn-ext">Docs</a>
+          <a href="https://github.com/fangxm233/cortex-agent" target="_blank" class="btn-ext">GitHub</a>
+        </div>
+      </div>
+    </div>
 
     <div class="pub-card">
       <div class="pub-body">
