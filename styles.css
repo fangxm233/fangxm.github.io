@@ -232,13 +232,15 @@
   }
   .pub-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: #c7d2fe; }
   .pub-thumb {
-    flex-shrink: 0; width: 240px;
-    border-radius: 10px; overflow: hidden; background: #f3f4f6;
-    position: relative; min-height: 128px;
+    flex-shrink: 0; width: 240px; align-self: center;
+    border-radius: 10px; overflow: hidden;
+    background: #fff; border: 1px solid var(--border);
+    padding: 6px;
   }
   .pub-thumb img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; object-fit: contain; display: block;
+    width: 100%; height: auto; max-height: 150px;
+    object-fit: contain; display: block;
+    border-radius: 4px;
   }
   .pub-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
   .pub-body h3 { font-size: 1.12rem; margin: 8px 0 8px; line-height: 1.4; color: #111827; }
@@ -301,7 +303,8 @@
     .hero-avatar { width: 180px; height: 180px; }
     .hero-name { font-size: 1.5rem; }
     .pub-card { flex-direction: column; gap: 14px; }
-    .pub-thumb { width: 100%; height: 180px; }
+    .pub-thumb { width: 100%; align-self: stretch; }
+    .pub-thumb img { max-height: 200px; margin: 0 auto; }
     .section-head { flex-direction: column; align-items: flex-start; gap: 4px; }
     .site-nav .nav-inner { gap: 14px; font-size: 13px; }
     .site-nav .nav-links { gap: 18px; }
