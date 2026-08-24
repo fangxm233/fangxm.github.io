@@ -69,9 +69,9 @@
             <a href="mailto:xinmin.fang@ucdenver.edu">xinmin (DOT) fang (AT) ucdenver (DOT) edu</a>
           </div>
           <div class="hero-links">
-            <a href="files/CV_Xinmin_Fang.pdf" title="CV"><img class="image-btn" height="48" src="images/icons/cv2.png" alt="CV"></a>
-            <a href="https://github.com/fangxm233" title="GitHub" target="_blank"><img class="image-btn" height="48" src="images/icons/github.png" alt="GitHub"></a>
-            <a href="https://scholar.google.com/citations?user=GxauvigAAAAJ" title="Google Scholar" target="_blank"><img class="image-btn" height="48" src="images/icons/google-scholar.png" alt="Google Scholar"></a>
+            <a class="hero-link" href="files/CV_Xinmin_Fang.pdf"><img src="images/icons/cv2.png" alt=""><span>CV</span></a>
+            <a class="hero-link" href="https://github.com/fangxm233" target="_blank"><img src="images/icons/github.png" alt=""><span>GitHub</span></a>
+            <a class="hero-link" href="https://scholar.google.com/citations?user=GxauvigAAAAJ" target="_blank"><img src="images/icons/google-scholar.png" alt=""><span>Google Scholar</span></a>
           </div>
         </div>
       </div>
@@ -85,50 +85,62 @@
         <a id="news"></a>
         <h2 class="section-title">News</h2>
 
-        <div class="info-card accent-publication">
+        <div class="info-card news-card accent-publication">
           <img src="images/icons/Academic.png" class="card-icon" alt="">
           <div class="card-body-text">
-            <span class="card-label publication">Publication</span>
+            <span class="card-meta">
+              <span class="card-label publication">Publication</span>
+              <span class="date-badge">2026</span>
+            </span>
             <span class="card-title">Paper accepted at ACM MobiCom'26: Physically Accurate Differentiable Inverse Rendering for RF Digital Twin</span>
-            <span class="card-text"><span class="date-badge">2026</span></span>
           </div>
         </div>
-
-        <div class="info-card accent-publication">
+        <div class="info-card news-card accent-publication">
           <img src="images/icons/Academic.png" class="card-icon" alt="">
           <div class="card-body-text">
-            <span class="card-label publication">Publication</span>
+            <span class="card-meta">
+              <span class="card-label publication">Publication</span>
+              <span class="date-badge">2026</span>
+            </span>
             <span class="card-title">Four full papers accepted at IROS'26: DexTact, ExplicitDP, Orthogonal Composite Tokens, and LiE-CBF</span>
-            <span class="card-text"><span class="date-badge">2026</span></span>
           </div>
         </div>
-
-        <div class="info-card accent-award">
+        <div class="info-card news-card accent-award">
           <img src="images/icons/Award.png" class="card-icon" alt="">
           <div class="card-body-text">
-            <span class="card-label award">🏆 Award</span>
+            <span class="card-meta">
+              <span class="card-label award">🏆 Award</span>
+              <span class="date-badge">2025</span>
+            </span>
             <span class="card-title">Best Paper Award at Sensors S&amp;P '25 for mmVanish</span>
-            <span class="card-text"><span class="date-badge">2025</span></span>
           </div>
         </div>
-
-        <div class="info-card accent-publication">
+        <div class="info-card news-card accent-publication">
           <img src="images/icons/Academic.png" class="card-icon" alt="">
           <div class="card-body-text">
-            <span class="card-label publication">Publication</span>
+            <span class="card-meta">
+              <span class="card-label publication">Publication</span>
+              <span class="date-badge">2025</span>
+            </span>
             <span class="card-title">Two full papers accepted at IROS'25: VRobotix and DexPour</span>
-            <span class="card-text"><span class="date-badge">2025</span></span>
           </div>
         </div>
 
-        <div class="info-card accent-academic">
-          <img src="images/icons/Academic.png" class="card-icon" alt="">
-          <div class="card-body-text">
-            <span class="card-label academic">Academic</span>
-            <span class="card-title">Started Ph.D. in Computer Science &amp; Information Systems at CU Denver</span>
-            <span class="card-text"><span class="date-badge">Fall 2024</span></span>
+        <div id="news-more" hidden>
+          <div class="info-card news-card accent-academic">
+            <img src="images/icons/Academic.png" class="card-icon" alt="">
+            <div class="card-body-text">
+              <span class="card-meta">
+                <span class="card-label academic">Academic</span>
+                <span class="date-badge">Fall 2024</span>
+              </span>
+              <span class="card-title">Started Ph.D. in Computer Science &amp; Information Systems at CU Denver</span>
+            </div>
           </div>
         </div>
+
+        <button type="button" class="news-toggle" id="news-toggle"
+                aria-expanded="false" aria-controls="news-more">Show 1 more</button>
 
       </div>
 
@@ -481,6 +493,26 @@
       <p>&copy; Xinmin Fang 2026 · Built with care</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('news-toggle');
+      var more = document.getElementById('news-more');
+      if (!btn || !more) return;
+      var hiddenCount = more.querySelectorAll('.info-card').length;
+      btn.addEventListener('click', function () {
+        var isOpen = !more.hasAttribute('hidden');
+        if (isOpen) {
+          more.setAttribute('hidden', '');
+          btn.textContent = 'Show ' + hiddenCount + ' more';
+        } else {
+          more.removeAttribute('hidden');
+          btn.textContent = 'Show less';
+        }
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    })();
+  </script>
 </body>
 
 </html>
