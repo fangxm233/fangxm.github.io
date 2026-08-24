@@ -8,273 +8,15 @@
   <meta name="author" content="Xinmin Fang">
   <title>Xinmin Fang | 方新民</title>
 
-  <link rel="canonical" href="https://fangxm.github.io">
+  <link rel="canonical" href="https://fangxm.me/">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<style>
-  :root {
-    --primary: #1e40af;
-    --primary-light: #3b82f6;
-    --primary-50: #eff6ff;
-    --accent: #d97706;
-    --accent-light: #fbbf24;
-    --bg: #fafbfc;
-    --surface: #ffffff;
-    --text: #1f2937;
-    --text-muted: #6b7280;
-    --border: #e5e7eb;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .04), 0 1px 3px rgba(0, 0, 0, .06);
-    --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, .06), 0 2px 4px -1px rgba(0, 0, 0, .04);
-    --shadow-lg: 0 12px 24px -8px rgba(0, 0, 0, .10), 0 4px 8px -2px rgba(0, 0, 0, .04);
-  }
-
-  body {
-    font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1, h2, h3, h4, h5 {
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #111827;
-  }
-
-  h2.section-title {
-    font-size: 1.75rem;
-    margin: 0 0 1.25rem;
-    position: relative;
-    padding-left: 14px;
-  }
-  h2.section-title::before {
-    content: '';
-    position: absolute; left: 0; top: 8px; bottom: 8px;
-    width: 4px; border-radius: 2px;
-    background: linear-gradient(180deg, var(--primary), #7c3aed);
-  }
-
-  h4.sub-title {
-    font-size: 1rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    margin: 1.25rem 0 .75rem;
-    font-weight: 600;
-  }
-
-  a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: color .15s ease;
-  }
-  a:hover { color: var(--primary-light); text-decoration: underline; }
-
-  /* ============ Sticky Nav ============ */
-  .site-nav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255, 255, 255, .85);
-    backdrop-filter: saturate(180%) blur(12px);
-    -webkit-backdrop-filter: saturate(180%) blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .site-nav .nav-inner {
-    display: flex; justify-content: center; gap: 28px;
-    padding: 14px 16px;
-    font-weight: 600; font-size: 14px;
-    overflow-x: auto;
-  }
-  .site-nav a {
-    color: var(--text);
-    letter-spacing: .02em;
-    white-space: nowrap;
-    padding: 4px 2px;
-    border-bottom: 2px solid transparent;
-    transition: color .15s, border-color .15s;
-  }
-  .site-nav a:hover { color: var(--primary); text-decoration: none; border-bottom-color: var(--primary); }
-
-  /* ============ Hero ============ */
-  .hero {
-    background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 60%, #fdf4ff 100%);
-    border-radius: 24px;
-    padding: 2.5rem 2rem;
-    margin: 1.5rem 0 2rem;
-    box-shadow: var(--shadow-sm);
-  }
-  .hero-avatar {
-    width: 240px; height: 240px; border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 24px 48px -12px rgba(30, 64, 175, .25), 0 8px 16px -4px rgba(0, 0, 0, .08);
-    border: 6px solid #fff;
-    display: block; margin: 0 auto;
-  }
-  .hero-name {
-    font-size: 2rem; font-weight: 800; margin: 0 0 .75rem;
-    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 60%, #c026d3 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -0.025em;
-  }
-  .hero-name .cn { font-family: 'Noto Sans SC', sans-serif; font-weight: 700; }
-  .hero-role { font-size: 1rem; line-height: 1.7; color: var(--text); margin-bottom: 1rem; }
-  .hero-role b { font-weight: 600; }
-  .hero-email {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 6px 14px; border-radius: 999px;
-    background: rgba(255, 255, 255, .7);
-    border: 1px solid var(--border);
-    font-size: .9rem; color: var(--text);
-    margin-bottom: 1rem;
-  }
-  .hero-links { margin-top: .5rem; }
-  .image-btn {
-    transition: transform .2s ease, filter .2s ease;
-    margin: 0 6px;
-  }
-  .image-btn:hover { transform: translateY(-3px) scale(1.05); filter: brightness(1.1); }
-
-  /* ============ Info Cards (News/Education/Awards) ============ */
-  .info-card {
-    display: flex; align-items: center; gap: 14px;
-    padding: 14px 18px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--primary);
-    border-radius: 12px;
-    margin-bottom: 10px;
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-  .info-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-  .info-card.accent-award { border-left-color: var(--accent); background: linear-gradient(90deg, #fffbeb 0%, #fff 40%); }
-  .info-card.accent-publication { border-left-color: var(--primary-light); }
-  .info-card.accent-academic { border-left-color: #9ca3af; }
-  .info-card.accent-research { border-left-color: #10b981; }
-  .info-card.accent-teaching { border-left-color: #8b5cf6; }
-
-  .info-card .card-icon {
-    width: 52px; height: 52px; border-radius: 10px; flex-shrink: 0; object-fit: cover;
-  }
-  .info-card .card-body-text { flex: 1; min-width: 0; }
-  .info-card .card-label {
-    display: inline-block; font-size: .7rem; font-weight: 700;
-    letter-spacing: .08em; text-transform: uppercase;
-    padding: 2px 8px; border-radius: 6px; margin-bottom: 4px;
-  }
-  .card-label.award { background: #fef3c7; color: #92400e; }
-  .card-label.publication { background: #dbeafe; color: #1e40af; }
-  .card-label.academic { background: #f3f4f6; color: #374151; }
-  .card-label.research { background: #d1fae5; color: #065f46; }
-  .card-label.teaching { background: #ede9fe; color: #5b21b6; }
-  .info-card .card-title { font-weight: 700; color: #111827; display: block; margin-bottom: 2px; }
-  .info-card .card-text { color: var(--text); font-size: .94rem; line-height: 1.55; }
-  .info-card .date-badge {
-    display: inline-block; font-size: .78rem; font-weight: 600;
-    color: var(--primary); background: var(--primary-50);
-    padding: 2px 8px; border-radius: 6px; margin-right: 6px;
-  }
-
-  /* ============ Research Interest Tags ============ */
-  .tag {
-    display: inline-block; padding: 6px 14px; border-radius: 999px;
-    font-size: .85rem; font-weight: 600; margin: 4px 6px 4px 0;
-    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
-    color: var(--primary);
-    border: 1px solid #c7d2fe;
-    transition: transform .2s ease, box-shadow .2s ease;
-    cursor: default;
-  }
-  .tag:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-
-  /* ============ Publication Cards ============ */
-  .pub-card {
-    display: flex; gap: 22px; align-items: stretch;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px 22px;
-    margin-bottom: 14px;
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-  }
-  .pub-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: #c7d2fe; }
-  .pub-thumb {
-    flex-shrink: 0; width: 240px;
-    border-radius: 10px; overflow: hidden; background: #f3f4f6;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .pub-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .pub-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-  .pub-body h3 { font-size: 1.12rem; margin: 8px 0 8px; line-height: 1.4; color: #111827; }
-  .pub-authors { color: var(--text); font-size: .93rem; line-height: 1.55; }
-  .pub-authors b { color: #111827; }
-  .pub-venue { color: var(--text-muted); font-style: italic; font-size: .88rem; margin-top: 4px; margin-bottom: 0; }
-
-  .venue-pill {
-    display: inline-block; padding: 4px 12px; border-radius: 999px;
-    font-size: .72rem; font-weight: 700; letter-spacing: .04em;
-    background: #dbeafe; color: #1e40af; text-transform: uppercase;
-  }
-  .venue-pill.award {
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
-    color: #92400e;
-    box-shadow: 0 2px 6px rgba(217, 119, 6, .2);
-  }
-  .venue-pill.preprint { background: #f3f4f6; color: #4b5563; }
-
-  .btn-ext {
-    display: inline-block; padding: 5px 14px; border-radius: 8px;
-    background: var(--primary); color: #fff !important; font-size: .82rem; font-weight: 600;
-    margin-top: 10px; margin-right: 6px;
-    transition: transform .15s, background .15s, box-shadow .15s;
-  }
-  .btn-ext:hover { background: var(--primary-light); transform: translateY(-1px); text-decoration: none; box-shadow: var(--shadow-sm); }
-
-  .year-header {
-    display: flex; align-items: center; gap: 12px;
-    margin: 1.5rem 0 1rem;
-    font-size: 1rem; font-weight: 700; color: var(--text-muted);
-    text-transform: uppercase; letter-spacing: .1em;
-  }
-  .year-header::after {
-    content: ''; flex: 1; height: 1px; background: var(--border);
-  }
-
-  /* ============ Project badges ============ */
-  .badge-tech {
-    display: inline-block; padding: 4px 12px; border-radius: 6px;
-    background: #eef2ff; color: var(--primary);
-    font-size: .78rem; font-weight: 600; margin-right: 6px; margin-top: 4px;
-  }
-
-  /* ============ Footer ============ */
-  .site-footer {
-    background: #111827; color: #9ca3af;
-    padding: 2rem 0; margin-top: 3rem;
-    text-align: center; font-size: .9rem;
-  }
-  .site-footer p { margin: 0; }
-
-  /* ============ Responsive ============ */
-  @media (max-width: 768px) {
-    .hero { padding: 1.5rem 1rem; }
-    .hero-avatar { width: 180px; height: 180px; }
-    .hero-name { font-size: 1.5rem; }
-    .pub-card { flex-direction: column; gap: 14px; }
-    .pub-thumb { width: 100%; height: 180px; }
-    .site-nav .nav-inner { gap: 16px; font-size: 13px; justify-content: flex-start; }
-  }
-
-  hr.section-divider {
-    border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0;
-  }
-</style>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"
@@ -297,12 +39,11 @@
   <!-- Sticky Nav -->
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="#top">Home</a>
-      <a href="#news">News</a>
-      <a href="#bio">Biography</a>
-      <a href="#education">Education</a>
-      <a href="#publications">Publications</a>
-      <a href="#projects">Projects</a>
+      <a class="nav-brand" href="index.html">Xinmin Fang</a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="publications.html">Publications</a>
+      </div>
     </div>
   </nav>
 
@@ -348,7 +89,7 @@
           <img src="images/icons/Academic.png" class="card-icon" alt="">
           <div class="card-body-text">
             <span class="card-label publication">Publication</span>
-            <span class="card-title">Two full papers accepted at IROS'26: ExplicitDP and DexTact</span>
+            <span class="card-title">Two full papers accepted at IROS'26: DexTact and ExplicitDP</span>
             <span class="card-text"><span class="date-badge">2026</span></span>
           </div>
         </div>
@@ -485,25 +226,24 @@
   <!-- Publications -->
   <div class="container">
     <a id="publications"></a>
-    <h2 class="section-title">Publications</h2>
-
+    <h2 class="section-title">Selected Publications</h2>
     <div class="year-header">2026 — Peer Reviewed</div>
-
-    <div class="pub-card">
-      <div class="pub-thumb"><img src="images/Publications/IROS_ExplicitDP.jpg" alt="ExplicitDP"></div>
-      <div class="pub-body">
-        <span class="venue-pill">IEEE/RSJ IROS 2026</span>
-        <h3>ExplicitDP: Generalized Multi-Task Manipulation with Explicit Diffusion Policies via Phase-Aware Task Understanding</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'26)</p>
-      </div>
-    </div>
 
     <div class="pub-card">
       <div class="pub-thumb"><img src="images/Publications/IROS_DexTact.jpg" alt="DexTact"></div>
       <div class="pub-body">
         <span class="venue-pill">IEEE/RSJ IROS 2026</span>
         <h3>DexTact: A Visuo-Tactile Foundation Model for Dexterous Hand Grasping</h3>
+        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
+        <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'26)</p>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-thumb"><img src="images/Publications/IROS_ExplicitDP.jpg" alt="ExplicitDP"></div>
+      <div class="pub-body">
+        <span class="venue-pill">IEEE/RSJ IROS 2026</span>
+        <h3>ExplicitDP: Generalized Multi-Task Manipulation with Explicit Diffusion Policies via Phase-Aware Task Understanding</h3>
         <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
         <p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'26)</p>
       </div>
@@ -559,110 +299,6 @@
       </div>
     </div>
 
-    <div class="year-header">2025 — Preprints (TechRxiv)</div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">TechRxiv 2025</span>
-        <h3>From First Principles: Why Artificial Intelligence is a Civilizational Inevitability</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, Fangzhou Ma, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">TechRxiv (TechRxiv:177091628)</p>
-        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177091628" target="_blank" class="btn-ext">TechRxiv</a></div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">TechRxiv 2025</span>
-        <h3>Digital Hieroglyphs: Orthogonal Composite Tokens for Vision-Language-Action Models</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">TechRxiv (TechRxiv:177041993)</p>
-        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177041993" target="_blank" class="btn-ext">TechRxiv</a></div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">TechRxiv 2025</span>
-        <h3>Multi-Scaling Laws for Embodied Intelligence: A Conjecture on Nested Power-Law Relationships in Dexterous Manipulation</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">TechRxiv (TechRxiv:176857966)</p>
-        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.176857966" target="_blank" class="btn-ext">TechRxiv</a></div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">TechRxiv 2025</span>
-        <h3>Intelligence Flywheel: A Conjecture on Recursive Self-Improvement and the Dynamics of AI Progress</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">TechRxiv (TechRxiv:176972273)</p>
-        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.176972273" target="_blank" class="btn-ext">TechRxiv</a></div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">TechRxiv 2025</span>
-        <h3>AI Robotics Open Source R&amp;D Survey: Foundation Models, Datasets, Simulation, and Benchmarks Platforms (2023-2025)</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">TechRxiv (TechRxiv:175756484)</p>
-        <div><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.175756484" target="_blank" class="btn-ext">TechRxiv</a></div>
-      </div>
-    </div>
-
-    <div class="year-header">Preprints (ArXiv)</div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">ArXiv 2024</span>
-        <h3>InverTwin: Solving Inverse Problems via Differentiable Radio Frequency Digital Twin</h3>
-        <div class="pub-authors"><a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, Jianrong Ding, Kai Zheng, <b>Xinmin Fang</b>, Xinyu Zhang, Chris Xiaoxuan Lu, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">ArXiv (arXiv:2508.14204)</p>
-        <div><a href="https://arxiv.org/abs/2508.14204" target="_blank" class="btn-ext">ArXiv</a></div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">ArXiv 2025</span>
-        <h3>AI's Euclid's Elements Moment: From Language Models to Computable Thought</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">ArXiv (arXiv:2506.23080)</p>
-        <div><a href="https://arxiv.org/abs/2506.23080" target="_blank" class="btn-ext">ArXiv</a></div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">ArXiv 2025</span>
-        <h3>Closer to Language than Steam: AI as the Cognitive Engine of a New Productivity Revolution</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">ArXiv (arXiv:2506.10281)</p>
-        <div><a href="https://arxiv.org/abs/2506.10281" target="_blank" class="btn-ext">ArXiv</a></div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">ArXiv 2025</span>
-        <h3>Anchoring AI Capabilities in Market Valuations: The Capability Realization Rate Model and Valuation Misalignment Risk</h3>
-        <div class="pub-authors"><b>Xinmin Fang</b>, Lingfeng Tao, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">ArXiv (arXiv:2505.10590)</p>
-        <div><a href="https://arxiv.org/abs/2505.10590" target="_blank" class="btn-ext">ArXiv</a></div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-body">
-        <span class="venue-pill preprint">ArXiv 2023</span>
-        <h3>Differentiable Radio Frequency Ray Tracing for Millimeter-Wave Sensing</h3>
-        <div class="pub-authors"><a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, Xingyu Zhang, Qiyue Xia, <b>Xinmin Fang</b>, Chris Xiaoxuan Lu, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
-        <p class="pub-venue">ArXiv (arXiv:2311.13182)</p>
-        <div><a href="https://arxiv.org/abs/2311.13182" target="_blank" class="btn-ext">ArXiv</a></div>
-      </div>
-    </div>
-
     <div class="year-header">2024</div>
 
     <div class="pub-card">
@@ -695,6 +331,10 @@
         <div class="pub-authors"><a href="https://xingyuchen.me/" target="_blank">Xingyu Chen</a>, <b>Xinmin Fang</b>, Wenchuan Wei, <a href="https://cse.buffalo.edu/~wenyaoxu/" target="_blank">Wenyao Xu</a>, <a href="https://cse.ucdenver.edu/~lizheng/" target="_blank">Zhengxiong Li</a></div>
         <p class="pub-venue">ACM Conference on Embedded Networked Sensor Systems (SenSys'21)</p>
       </div>
+    </div>
+
+    <div style="margin-top: 1.25rem;">
+      <a href="publications.html" class="btn-ext">View all publications</a>
     </div>
 
     <hr class="section-divider">
